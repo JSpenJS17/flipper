@@ -57,6 +57,10 @@ app.get('/points.txt', (req, res) => {
     res.json({ points });
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
 // Start server
 (async () => {
     app.listen(PORT, () => {
