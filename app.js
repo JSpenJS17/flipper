@@ -3,7 +3,7 @@ const fs = require('fs/promises');
 const cron = require('node-cron');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Coin flip logic (heads: +1 point)
 async function flipCoin() {
@@ -60,7 +60,7 @@ app.get('/points.txt', (req, res) => {
 // Start server
 (async () => {
     app.listen(PORT, () => {
-        console.log(`Server is running on http://localhost:${PORT}`);
+        console.log(`Server is running on port ${PORT}`);
     });
 })();
 
